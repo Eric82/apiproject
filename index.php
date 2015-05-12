@@ -16,10 +16,10 @@ define('ImageDirectory', 'pics/');
 <head>
 	<title></title>
 </head>
-	<body>
+<body>
 <!-- Creating a login for people to go and give approval for our web app to acess their Intasgram their Instagram Account
 After getting approval we are now going to have the information so that we can play with it.
  -->
-		<a href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI?>&response_type=code">LOGIN</a>
-	</body>
-</htmiL
+<a href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI?>&response_type=code">LOGIN</a>
+</body>
+</html>
