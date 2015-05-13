@@ -25,9 +25,14 @@ curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_POSTFIELDS, $access_token_settings);// setting the POSTFIELD to the array setup that we create.
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);// setting it equal to 1 because we are getting strings back.
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);//but in live work-production we want to set it to true.
-}
+
 $result = curl_exec($curl);
-curl_close();
+curl_close($curl);
+
+$result = json_decode($result, true);
+
+}
+else{
 ?>
 
 <!DOCTYPE html>
@@ -42,3 +47,6 @@ After getting approval we are now going to have the information so that we can p
 		<a href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI?>&response_type=code">Login</a>
 	</body>
 </html>
+<?php
+}
+?>
