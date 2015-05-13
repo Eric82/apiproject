@@ -23,7 +23,14 @@ function connectToInstagram($url){
 		$result = curl_exec($ch);
 		curl_close($ch);
 		return $reslut;
+}
+//function to get userID cause username doesn't allow us to get pictures!
+function getUserID($userName){
+	$url = 'http://api.instagram.com/v1/users/search?q='.$userName.'&client_id='.clientID;
+	$instagramInfo = connectToInstagram($url);
+	$result = json_decode($instagramInfo, true);
 
+	echo $result['data']['0']['id'];
 }
 
 if (isset($_GET['code'])){
@@ -42,11 +49,12 @@ curl_setopt($curl, CURLOPT_POSTFIELDS, $access_token_settings);// setting the PO
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);// setting it equal to 1 because we are getting strings back.
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);//but in live work-production we want to set it to true.
 
+
 $result = curl_exec($curl);
 curl_close($curl);
 
 $result = json_decode($result, true);
-echo $result['user']['username'];
+getUserID($result['user']['username']);
 }
 else{
 ?>
