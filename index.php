@@ -26,11 +26,23 @@ function connectToInstagram($url){
 }
 //function to get userID cause username doesn't allow us to get pictures!
 function getUserID($userName){
-	$url = 'http://api.instagram.com/v1/users/search?q='.$userName.'&client_id='.clientID;
-	$instagramInfo = connectToInstagram($url);
-	$result = json_decode($instagramInfo, true);
+	$url = 'http://api.instagram.com/v1/users/search?q='.$userName.'&client_id='.clientID;//to get id
+	$instagramInfo = connectToInstagram($url);//connecting to Instagram.
+	$result = json_decode($instagramInfo, true);//creating out userID.
 
-	echo $result['data']['0']['id'];
+	echo $result['data']['0']['id'];//echoing out userID.
+}
+//function to print out images onto screen
+function printImages($userID){
+		$url = 'https://api.instagram.com/v1/users/'.$userId.'/media/recent?client_id='.clientID.'&count=5';
+		$instagramInfo = connectToInstagram($url);
+		$result = json_decode($instagramInfo, true);
+		//parse through the information one by one.
+		foreach($result['data'] as $items){
+			$image_url = $items['images']['low_resolution']['url'];//going to go throuhg all of my results and give myself back the URL of those pictures 
+			//because we want to save it in the PHP Server.			
+			echo'<img src=" '.$image_url.' "/><br/>';
+		}
 }
 
 if (isset($_GET['code'])){
@@ -54,7 +66,12 @@ $result = curl_exec($curl);
 curl_close($curl);
 
 $result = json_decode($result, true);
-getUserID($result['user']['username']);
+
+$userName = $result['user']['username'];
+
+$userID = getUserID($userName);
+
+printImages($userID);
 }
 else{
 ?>
