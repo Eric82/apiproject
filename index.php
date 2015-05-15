@@ -41,7 +41,7 @@ function printImages($userID){
 		foreach ($results['data'] as $items){
 			$image_url = $items['images']['low_resolution']['url'];//going to go throuhg all of my results and give myself back the URL of those pictures 
 			//because we want to save it in the PHP Server.			
-			echo'<img src=" '.$image_url.' "/><br/>';
+			echo '<img src=" '.$image_url.' "/><br/>';
 			//calling a function to save that $imag_url
 			savePictures($image_url);	
 		}
@@ -92,12 +92,15 @@ else{
 <html>
 <head>
 	<title></title>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 	<body>
 <!-- Creating a login for people to go and give approval for our web app to acess their Intasgram their Instagram Account
 After getting approval we are now going to have the information so that we can play with it.
  -->
+ 	<button type="button">
 		<a href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI?>&response_type=code">Login</a>
+	</button>
 	</body>
 </html>
 <?php
