@@ -50,7 +50,7 @@ function printImages($userID){
 function savePictures($image_url){
 	echo $image_url .'<br>';
 	$filename = basename($image_url);// the file name is what we are storing, basename is the PHP bult in the method that we are using to store $image_url
-	echo $filename . '<br>';
+	return $filename . '<br>';
 
 	$destination = ImageDirectory . $filename;//making sure that the image doesn't exist in the storge.
 	file_put_contents($destination, file_get_contents($image_url));//gets and grabs an imagefile and stores it into our server/
@@ -93,6 +93,10 @@ else{
 <head>
 	<title></title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" media="(max-width: 800px)" href="main.css" />
+		<header>
+			Welcome
+		</header>
 </head>
 	<body>
 <!-- Creating a login for people to go and give approval for our web app to acess their Intasgram their Instagram Account

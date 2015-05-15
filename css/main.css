@@ -1,8 +1,24 @@
-body {
-	background: activecaption;
+@import url('http://fonts.googleapis.com/css?family=Droid+Sans');
+
+html{
+	background-image:url('http://www.pageresource.com/wallpapers/wallpaper/texture_1391578.jpg');
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 	text-align: center;
+	background-repeat: no-repeat;
+}
+body {
 	margin-right: 10px;
 }
+header{
+	font-family: 'Droid Sans', sans-serif;
+	opacity: 1.5;
+	color:white; 
+	font-size: 40px;
+}
+
+
 
 @media(max-width: 1580px){
 	html {
@@ -24,4 +40,9 @@ body {
 			width: 30%;
 		}
 	}
+}
+@media (max-width: 600px) {
+  .facet_sidebar {
+    display: none;
+  }
 }
