@@ -1,0 +1,11 @@
+html{
+	background-image:url('http://www.pageresource.com/wallpapers/wallpaper/texture_1391578.jpg');
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+	text-align: center;
+	background-repeat: no-repeat;
+}
+body{
+	margin: 100px;
+}

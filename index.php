@@ -48,7 +48,13 @@ function printImages($userID){
 }
 //function to save image to server
 function savePictures($image_url){
-	echo $image_url .'<br>';
+	echo'<head>
+				<link rel="stylesheet" type="text/css" href="css/stylesheet.css">	
+			 </head>';
+	echo '<body>
+					<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+				</body>';		 
+	return $image_url .'<br>';
 	$filename = basename($image_url);// the file name is what we are storing, basename is the PHP bult in the method that we are using to store $image_url
 	return $filename . '<br>';
 
@@ -92,8 +98,15 @@ else{
 <html>
 <head>
 	<title></title>
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta charset="utf-8">
+		<meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" media="(max-width: 800px)" href="main.css" />
+		<link rel="stylesheet" type="text/css" href="css/stylesheet.css">	
 		<header>
 			Welcome
 		</header>
@@ -105,6 +118,9 @@ After getting approval we are now going to have the information so that we can p
  	<button type="button">
 		<a href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI?>&response_type=code">Login</a>
 	</button>
+	<script type="js/main.js"></script>
+	<script type="js/bootstrap.min.js"></script>
+	<script type="js/jquery-2.1.1.min.js"></script>	
 	</body>
 </html>
 <?php
