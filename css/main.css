@@ -18,7 +18,9 @@ header{
 	font-size: 40px;
 }
 
-
+img{
+	margin-bottom: 35px;
+}
 
 @media(max-width: 1580px){
 	html {
